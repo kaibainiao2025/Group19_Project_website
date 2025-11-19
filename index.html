@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PRMI: A Dataset of Minirhizotron Images for Diverse Plant Root Study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+
+    <header>
+      <h1>PRMI: A Dataset of Minirhizotron Images for Diverse Plant Root Study</h1>
+
+      <div class="authors">
+        <p>
+          Weihuang Xu<sup>1</sup> &nbsp;
+          Guohao Yu<sup>1</sup> &nbsp;
+          Yiming Cui<sup>1</sup> &nbsp;
+          Romain Gloaguen<sup>2</sup> &nbsp;
+          Alina Zare<sup>1</sup> &nbsp;
+          Jason Bonnette<sup>3</sup> &nbsp;
+          Joel Reyes-Cabrera<sup>4</sup> &nbsp;
+          Ashish Rajurkar<sup>4</sup> &nbsp;
+          Diane Rowland<sup>5</sup> &nbsp;
+          Roser Matamala<sup>6</sup> &nbsp;
+          Julie D. Jastrow<sup>6</sup> &nbsp;
+          Thomas E. Juenger<sup>3</sup> &nbsp;
+          Felix B. Fritschi<sup>4</sup>
+        </p>
+
+        <p class="affiliations">
+          <sup>1</sup> University of Florida &nbsp;
+          <sup>2</sup> UniLaSalle Bauvais &nbsp;
+          <sup>3</sup> University of Texas at Austin &nbsp;
+          <sup>4</sup> University of Missouri &nbsp;
+          <sup>5</sup> University of Maine &nbsp;
+          <sup>6</sup> Argonne National Laboratory
+        </p>
+
+        <p class="venue">
+          AI for Agriculture and Food Systems (AIAFS),
+          36th AAAI Conference on Artificial Intelligence, 2022
+        </p>
+      </div>
+
+      <nav class="top-nav">
+        <a href="#abstract">Abstract</a>
+        <a href="#minirhizotron">Minirhizotron System</a>
+        <a href="#dataset-example">Dataset Example</a>
+        <a href="#dataset-summary">Dataset Summary</a>
+        <a href="#masks">Ground Truth Masks</a>
+        <a href="#materials">Materials</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ABSTRACT -->
+      <section id="abstract">
+        <h2>Abstract</h2>
+        <p>
+          Understanding plant root system architecture (RSA) is important for applications
+          in sustainability, climate adaptation, and crop improvement. Minirhizotron (MR)
+          imaging systems acquire high-resolution RGB images of roots through transparent
+          tubes installed in the soil. This page introduces a large-scale MR image dataset
+          spanning multiple plant species and growth conditions, with both image-level and
+          pixel-level annotations to support weakly supervised and fully supervised root
+          segmentation research.
+        </p>
+        <p>
+          The dataset includes tens of thousands of images covering variation in species,
+          soil types, depths, and root structures. A substantial portion of the images is
+          accompanied by binary masks labeling each pixel as root or non-root, enabling
+          benchmarking of semantic segmentation algorithms for root detection and analysis.
+        </p>
+      </section>
+
+      <!-- MINIRHIZOTRON SYSTEM -->
+      <section id="minirhizotron">
+        <h2>Minirhizotron System</h2>
+
+        <div class="figure">
+          <img src="img/minirhizotron_system.png" alt="Diagram or photo of the minirhizotron imaging system">
+          <p class="caption">
+            Example minirhizotron system: transparent tubes installed in the field allow a camera
+            to capture root images at different depths over time.
+          </p>
+        </div>
+
+        <p>
+          Minirhizotron technology installs clear tubes into the soil at an oblique angle
+          before planting. As plants grow, a camera is lowered along each tube to capture
+          images of nearby roots at multiple depths. Because the tubes remain in place for
+          the entire growing season, the same root regions can be imaged repeatedly to
+          track development over time.
+        </p>
+        <p>
+          This setup enables non-destructive, longitudinal observation of RSA, including
+          changes in root length, diameter, branching structure, density, and color as the
+          plant responds to environmental conditions.
+        </p>
+      </section>
+
+      <!-- DATASET EXAMPLE -->
+      <section id="dataset-example">
+        <h2>Dataset Example</h2>
+
+        <div class="figure">
+          <img src="img/dataset_example.png" alt="Example minirhizotron root images from the dataset">
+          <p class="caption">
+            Example RGB images highlighting differences in soil type, root density, and
+            appearance across species and depths.
+          </p>
+        </div>
+      </section>
+
+      <!-- DATASET SUMMARY -->
+      <section id="dataset-summary">
+        <h2>Dataset Summary</h2>
+
+        <div class="figure">
+          <img src="img/dataset_summary.png" alt="Summary chart or table describing the dataset">
+          <p class="caption">
+            High-level summary of the dataset, including number of images, species,
+            and annotation types.
+          </p>
+        </div>
+
+        <ul>
+          <li>Large-scale RGB dataset of plant roots captured using minirhizotron systems.</li>
+          <li>Multiple plant species with diverse soil conditions and tube depths.</li>
+          <li>Image-level labels indicating the presence or absence of visible roots.</li>
+          <li>Pixel-level binary masks for a large subset of images.</li>
+          <li>Designed to support both weakly supervised and fully supervised methods.</li>
+        </ul>
+      </section>
+
+      <!-- MASKS -->
+      <section id="masks">
+        <h2>Manually Annotated Ground Truth Masks</h2>
+
+        <div class="figure">
+          <img src="img/masks_example.png" alt="Example ground truth masks for root segmentation">
+          <p class="caption">
+            Example pairs of RGB images and corresponding binary masks used as ground truth
+            for semantic segmentation.
+          </p>
+        </div>
+
+        <p>
+          Pixel-level annotations label each pixel as belonging to the root system or the
+          surrounding soil. These masks allow quantitative evaluation of segmentation
+          algorithms using metrics such as IoU, Dice score, and pixel accuracy.
+        </p>
+      </section>
+
+      <!-- MATERIALS -->
+      <section id="materials">
+        <h2>Materials</h2>
+
+        <div class="figure-grid">
+          <figure>
+            <img src="img/materials_1.png" alt="Example field or experimental setup image">
+            <figcaption>Field or greenhouse setup used for data collection.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="img/materials_2.png" alt="Example image of sensors or tubes">
+            <figcaption>Installed minirhizotron tubes and related hardware.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="img/materials_3.png" alt="Example image of plant material or roots">
+            <figcaption>Plant material and root structures imaged in the study.</figcaption>
+          </figure>
+        </div>
+
+        <p>
+          Additional materials may include imaging hardware specifications, tube installation
+          guidelines, and data collection protocols. These details help ensure that the
+          dataset can be correctly interpreted and used as a benchmark for future work.
+        </p>
+      </section>
+
+      <!-- LINKS & CITATION -->
+      <section id="citation">
+        <h2>Citation</h2>
+
+        <h3>Plain Text</h3>
+        <pre class="code-block">
+W. Xu, G. Yu, Y. Cui, R. Gloaguen, A. Zare, J. Bonnette, J. Reyes-Cabrera,
+A. Rajurkar, D. Rowland, R. Matamala, J. D. Jastrow, T. E. Juenger, and
+F. B. Fritschi. “PRMI: A Dataset of Minirhizotron Images for Diverse Plant
+Root Study.” AI for Agriculture and Food Systems (AIAFS) Workshop at the
+AAAI Conference on Artificial Intelligence, February 2022.
+        </pre>
+
+        <h3>BibTeX</h3>
+        <pre class="code-block">
+@misc{xu2022prmi,
+  title        = {PRMI: A Dataset of Minirhizotron Images for Diverse Plant Root Study},
+  author       = {Weihuang Xu and Guohao Yu and Yiming Cui and Romain Gloaguen and
+                  Alina Zare and Jason Bonnette and Joel Reyes-Cabrera and
+                  Ashish Rajurkar and Diane Rowland and Roser Matamala and
+                  Julie D. Jastrow and Thomas E. Juenger and Felix B. Fritschi},
+  year         = {2022},
+  eprint       = {2201.08002},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CV}
+}
+        </pre>
+
+        <h3>Related Links</h3>
+        <ul class="link-list">
+          <li><a href="https://arxiv.org/abs/2201.08002" target="_blank" rel="noopener">Paper (arXiv)</a></li>
+          <li><a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.XXXXXXX" target="_blank" rel="noopener">Dataset (repository)</a></li>
+          <li><a href="https://faculty.eng.ufl.edu" target="_blank" rel="noopener">Lab webpage</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2022–2025 PRMI Project &middot;
+        This page is a static HTML/CSS template inspired by the original project website.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

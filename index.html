@@ -23,12 +23,10 @@
 
       <nav class="top-nav">
         <a href="#abstract">Abstract</a>
-        <a href="#minirhizotron">Minirhizotron System</a>
         <a href="#dataset-example">Dataset Example</a>
         <a href="#dataset-summary">Dataset Summary</a>
         <a href="#masks">Ground Truth Masks</a>
         <a href="#materials">Materials</a>
-        <a href="#citation">Citation</a>
       </nav>
     </header>
 
@@ -38,45 +36,25 @@
       <section id="abstract">
         <h2>Abstract</h2>
         <p>
-          Understanding plant root system architecture (RSA) is important for applications
-          in sustainability, climate adaptation, and crop improvement. Minirhizotron (MR)
-          imaging systems acquire high-resolution RGB images of roots through transparent
-          tubes installed in the soil. This page introduces a large-scale MR image dataset
-          spanning multiple plant species and growth conditions, with both image-level and
-          pixel-level annotations to support weakly supervised and fully supervised root
-          segmentation research.
-        </p>
-        <p>
-          The dataset includes tens of thousands of images covering variation in species,
-          soil types, depths, and root structures. A substantial portion of the images is
-          accompanied by binary masks labeling each pixel as root or non-root, enabling
-          benchmarking of semantic segmentation algorithms for root detection and analysis.
-        </p>
-      </section>
-
-      <!-- MINIRHIZOTRON SYSTEM -->
-      <section id="minirhizotron">
-        <h2>Minirhizotron System</h2>
-
-        <div class="figure">
-          <img src="img/minirhizotron_system.png" alt="Diagram or photo of the minirhizotron imaging system">
-          <p class="caption">
-            Example minirhizotron system: transparent tubes installed in the field allow a camera
-            to capture root images at different depths over time.
-          </p>
-        </div>
-
-        <p>
-          Minirhizotron technology installs clear tubes into the soil at an oblique angle
-          before planting. As plants grow, a camera is lowered along each tube to capture
-          images of nearby roots at multiple depths. Because the tubes remain in place for
-          the entire growing season, the same root regions can be imaged repeatedly to
-          track development over time.
-        </p>
-        <p>
-          This setup enables non-destructive, longitudinal observation of RSA, including
-          changes in root length, diameter, branching structure, density, and color as the
-          plant responds to environmental conditions.
+          Understanding machine sound patterns is crucial for industrial condition monitoring, 
+          predictive maintenance, and safety. The DCASE 2023 Task 2 development data 
+          provide 10-second mono recordings from seven machine types under normal and 
+          anomalous operating conditions, together with metadata and precomputed Audio 
+          Spectrogram Transformer (AST) embeddings. In this work, we construct a cleaned, 
+          enriched version of this dataset by attaching audio waveforms to the metadata, 
+          generating Mel spectrograms, and preserving balanced splits over machine type, 
+          domain, and label. Using the AST embeddings, we first perform dimensionality 
+          reduction and clustering analyses to study how well different machine types are 
+          separated in the embedding space, and then train several classical classifiers 
+          (Naive Bayes, Decision Tree, Random Forest, SVM, and KNN) for supervised 
+          machine-type classification. We further design and train AudioResNet, a 
+          ResNet-inspired convolutional neural network that operates on Mel spectrograms 
+          for machine-type classification, and use its penultimate-layer features as 
+          custom embeddings. These AudioResNet embeddings are evaluated with the same 
+          family of classifiers and compared directly to AST embeddings in terms of 
+          classification performance and representation quality. Finally, we construct
+          a combined dataset with explicit anomaly indicators to support model selection 
+          for anomalous vs non-anomalous classification using the learned embedding spaces.
         </p>
       </section>
 
@@ -98,22 +76,10 @@
         <h2>Dataset Summary</h2>
 
         <div class="figure">
-          <img src="img/dataset_summary.png" alt="Summary chart or table describing the dataset">
-          <p class="caption">
-            High-level summary of the dataset, including number of images, species,
-            and annotation types.
-          </p>
+            <img src="images/dataset_summary_machine_type.png" alt="Dataset summary visualization">
+            <img src="images/dataset_summary_anomaly.png" alt="Dataset summary visualization">
         </div>
-
-        <ul>
-          <li>Large-scale RGB dataset of plant roots captured using minirhizotron systems.</li>
-          <li>Multiple plant species with diverse soil conditions and tube depths.</li>
-          <li>Image-level labels indicating the presence or absence of visible roots.</li>
-          <li>Pixel-level binary masks for a large subset of images.</li>
-          <li>Designed to support both weakly supervised and fully supervised methods.</li>
-        </ul>
       </section>
-
       <!-- MASKS -->
       <section id="masks">
         <h2>Manually Annotated Ground Truth Masks</h2>
@@ -160,46 +126,17 @@
           dataset can be correctly interpreted and used as a benchmark for future work.
         </p>
       </section>
-
-      <!-- LINKS & CITATION -->
-      <section id="citation">
-        <h2>Citation</h2>
-
-        <h3>Plain Text</h3>
-        <pre class="code-block">
-W. Xu, G. Yu, Y. Cui, R. Gloaguen, A. Zare, J. Bonnette, J. Reyes-Cabrera,
-A. Rajurkar, D. Rowland, R. Matamala, J. D. Jastrow, T. E. Juenger, and
-F. B. Fritschi. “PRMI: A Dataset of Minirhizotron Images for Diverse Plant
-Root Study.” AI for Agriculture and Food Systems (AIAFS) Workshop at the
-AAAI Conference on Artificial Intelligence, February 2022.
-        </pre>
-
-        <h3>BibTeX</h3>
-        <pre class="code-block">
-@misc{xu2022prmi,
-  title        = {PRMI: A Dataset of Minirhizotron Images for Diverse Plant Root Study},
-  author       = {Weihuang Xu and Guohao Yu and Yiming Cui and Romain Gloaguen and
-                  Alina Zare and Jason Bonnette and Joel Reyes-Cabrera and
-                  Ashish Rajurkar and Diane Rowland and Roser Matamala and
-                  Julie D. Jastrow and Thomas E. Juenger and Felix B. Fritschi},
-  year         = {2022},
-  eprint       = {2201.08002},
-  archivePrefix= {arXiv},
-  primaryClass = {cs.CV}
-}
-        </pre>
-
+      
         <h3>Related Links</h3>
         <ul class="link-list">
-          <li><a href="https://arxiv.org/abs/2201.08002" target="_blank" rel="noopener">Paper (arXiv)</a></li>
-          <li><a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.XXXXXXX" target="_blank" rel="noopener">Dataset (repository)</a></li>
-          <li><a href="https://faculty.eng.ufl.edu" target="_blank" rel="noopener">Lab webpage</a></li>
+          <li><a href="https://huggingface.co/datasets/renumics/dcase23-task2-enriched" target="_blank" rel="noopener">Dataset (repository)</a></li>
         </ul>
       </section>
     </main>
   </div>
 </body>
 </html>
+
 
 
 
